@@ -6,7 +6,7 @@ $(document).ready(function(){
 	$('.modal').modal();
 	// Prints default page to screen on page load
 	function defaultPage(){
-		$(".cuisine-search-field").hide();
+		// $(".cuisine-search-field").hide();
 		$(".resultsDiv").hide();
 	};
 	defaultPage();
@@ -61,7 +61,8 @@ $(document).ready(function(){
 		var finalURL = baseURL + queryURL;
 		$.getJSON(finalURL, function(r){
             // Check # of restaurants returned
-			lengthCheck(r);
+            lengthCheck(r);
+            
 		});
 	};
 	// This function checks how many restaurants are returned by the City API, if there are multiple, it prompts
@@ -146,6 +147,8 @@ $(document).ready(function(){
                 var passTableBody = $("#passTableBody");
                 passTableRow.append(tableData1, tableData2, tableData3, tableData4);
                 passTableBody.append(passTableRow);
+                // display the DBA name for the header of the map. 
+                $("#rName").text(r[i].dba_name);
             }
             else if (result.includes("Fail")){
                 fail++;
@@ -161,7 +164,7 @@ $(document).ready(function(){
                 tableData3.text(r[i].inspection_type);
                 tableData4.text(r[i].violations);
                 failTableRow.append(tableData1, tableData2, tableData3, tableData4);
-                failTableBody.append(failTableRow);
+                failTableBody.append(failTableRow);   
             }
             else {
                 console.log("There has been an error with this restaurant");
@@ -170,6 +173,7 @@ $(document).ready(function(){
         $("#totalPass").text(pass);
         $("#totalFail").text(fail);
         $(".resultsDiv").show();
+        
     };
     // Function prints map to page
     function initMap(r){
@@ -185,20 +189,22 @@ $(document).ready(function(){
             position: centerMap,
             map: map
         });
+  
     };    
     // Function which queries Google PlaceID to retrieve placeID
     function placeID(v){
         var baseURL = 'https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyDHoRALByDMw9kuV4wjKPK22BqM8AahDgo&';
         var queryURL = 'query=' + restaurantNameGlobal + '&location=' + v[0].location.coordinates[1] + ',' + v[0].location.coordinates[0] + '&radius=50';
         console.log(baseURL + queryURL);
-        var proxyURL = 'https://ghastly-eyeballs-78637.herokuapp.com/';
-        var fullURL = proxyURL + baseURL + queryURL;
+        // var proxyURL = 'https://ghastly-eyeballs-78637.herokuapp.com/';
+        var fullURL = baseURL + queryURL;
         $.getJSON(fullURL, function(r){
             if (r.results.length == 0) {
                 console.log("There is an error with the Google PlaceID Fxn, someone tell Ronak!");
             }
             else{
                 reviewsCall(r.results[0].place_id);
+               
             };
         });
     };
@@ -206,8 +212,8 @@ $(document).ready(function(){
     function reviewsCall(placeID){
         var baseURL = 'https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyDHoRALByDMw9kuV4wjKPK22BqM8AahDgo&';
         var queryURL = "placeid=" + placeID;
-        var proxyURL = 'https://ghastly-eyeballs-78637.herokuapp.com/';
-        var fullURL = proxyURL + baseURL + queryURL;
+        // var proxyURL = 'https://ghastly-eyeballs-78637.herokuapp.com/';
+        var fullURL = baseURL + queryURL;
         $.getJSON(fullURL, function(r){
             $("#rName").text(r.result.name);
             $("#address").text(r.result.formatted_address);
