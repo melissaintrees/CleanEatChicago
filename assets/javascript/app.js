@@ -3,7 +3,9 @@ $(document).ready(function(){
     // Needs to be global for use in google places fxn
     var restaurantNameGlobal = "";
 	// Modal function needed by Materialize
-	$('.modal').modal();
+    $('.modal').modal();
+    // Parallex call needed by Materialize
+    $('.parallax').parallax();
 	// Prints default page to screen on page load
 	function defaultPage(){
 		// $(".cuisine-search-field").hide();
@@ -11,21 +13,21 @@ $(document).ready(function(){
 	};
 	defaultPage();
 	// Function to toggle input fields based on target click
-	$("#searchBtns").on("click", function(e){
-		if (e.target.id === "restaurantName"){
+	// $("#searchBtns").on("click", function(e){
+	// 	if (e.target.id === "restaurantName"){
 
-            $(".rest-search-field").show();
-            $(".cuisine-search-field").hide();
-        } else {
-            $(".cuisine-search-field").show();
-            $(".rest-search-field").hide();
-        }
-	});
+    //         $(".rest-search-field").show();
+    //         $(".cuisine-search-field").hide();
+    //     } else {
+    //         $(".cuisine-search-field").show();
+    //         $(".rest-search-field").hide();
+    //     }
+	// });
 	// Function run when the user hits submit
 	$("#submitBtn").on("click", function(){
         var restaurantName = $("#rest-search-input").val();
         restaurantNameGlobal = restaurantName;
-		var cuisineName = $("#cuisine-search-input").val();
+		// var cuisineName = $("#cuisine-search-input").val();
 		var zipName = $("#zip-search-input").val();
 		// Validate Input
 		validateInput(restaurantName, zipName);
@@ -143,7 +145,13 @@ $(document).ready(function(){
                 tableData1.text(moment(r[i].inspection_date).format("MM-DD-YYYY"));
                 tableData2.text(r[i].results);
                 tableData3.text(r[i].inspection_type);
-                tableData4.text(r[i].violations);
+                // tableData4.text(r[i].violations);
+                if (r[i].results === "Pass"){
+                    tableData4.text("Two Clean Thumbs Up!")
+                } else {
+                    tableData4.text("A-OK")
+                }
+                
                 var passTableBody = $("#passTableBody");
                 passTableRow.append(tableData1, tableData2, tableData3, tableData4);
                 passTableBody.append(passTableRow);

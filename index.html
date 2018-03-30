@@ -1,47 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Clean Eat Chicago</title>
-        <!--Import Google Icon Font Library-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- Compiled and minified materialize.CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-        <!-- Import Custom CSS -->
-        <link rel="stylesheet" href="assets/css/style.css">
-        <!-- Favicon -->
-        <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png"/>
-    </head>
-    <body>
-        <!-- Navbar -->
-        <header>
-            <div class="nav-header header-sty">
-                <h1 class="center"> <span id="clean-italic">CLEAN EAT </span>CHICAGO</h1>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clean Eat Chicago</title>
+    <!--Import Google Icon Font Library-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified materialize.CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- Import Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="nav-header header-sty">
+            <h1 class="center">
+                <img class="logo" src="./assets/images/logo_1_test.gif" alt="logo for clean eat chicago">
+                <!-- <span id="clean-italic">CLEAN EAT </span><span id="title-chi"></span>CHICAGO</h1> -->
+        </div>
+    </header>
+    <!-- Everything inside this container -->
+    <main class="container">
+        <!-- Line breaks for spacing -->
+        <br>
+        <div class="row">
+            <div class="col s12">
+                <h1 class="header center hungry">Hungry?</h1>
             </div>
-        </header>
-        <!-- Everything inside this container -->
-        <main class="container">
-            <!-- Line breaks for spacing -->
+        </div>
+        <!-- Row for search buttons -->
+        <div class="row center" id="searchBtns">
+            <a class="btn waves-effect waves-light btn-custom tooltipped" id="restaurantName" data-position="bottom" data-tooltip="Please enter restaurant name">Restaurant Name</a>
+            <!-- <a class="btn waves-effect waves-light btn-custom tooltipped" id="cuisineType" data-position="bottom" data-tooltip="Please enter cuisine type">Cuisine Type</a> -->
             <br>
-            <div class="row">
-                <div class="col s12">
-                    <h1 class="header center hungry">Hungry?</h1>
-                </div>
-            </div>
-            <!-- Row for search buttons -->
-            <div class="row center" id="searchBtns">
-                <a class="btn waves-effect waves-light btn-custom tooltipped" id="restaurantName" data-position="bottom" data-tooltip="Please enter restaurant name">Restaurant Name</a>
-                <!-- <a class="btn waves-effect waves-light btn-custom tooltipped" id="cuisineType" data-position="bottom" data-tooltip="Please enter cuisine type">Cuisine Type</a> -->
-                <br>
-            </div>
-            <!-- Row for search fields, hard coded -->
-            <div class="row center">
+        </div>
+        <!-- Row for search fields, hard coded -->
+        <div class="row center">
             <form class="col s12">
                 <div class="input-field col s12 m12 l6 rest-search-field">
                     <i class="material-icons prefix">restaurant</i>
-                    <input class="icon_prefix" id= "rest-search-input" data-error="wrong" data-success="right" type="text" class="validate">
+                    <input class="icon_prefix" id="rest-search-input" data-error="wrong" data-success="right" type="text" class="validate">
                     <label for="rest-search-input">Restaurant</label>
                 </div>
                 <!-- <div class="input-field col s12 m12 l6 cuisine-search-field">
@@ -51,41 +55,41 @@
                 </div> -->
                 <div class="input-field col s12 m12 l6 zip-search-field">
                     <i class="material-icons prefix">search</i>
-                    <input class="icon_prefix" id="zip-search-input" type="text" data-length="5" class="validate" >
+                    <input class="icon_prefix" id="zip-search-input" type="text" data-length="5" class="validate">
                     <label for="zip-search-input">Zip</label>
                 </div>
             </form>
+        </div>
+        <!-- Row for Submit Button, Offsetted for layout -->
+        <div class="row center-align ">
+            <div class="col s12">
+                <a class="waves-effect waves-light btn btn-custom" href="#!" type="submit" id="submitBtn">Submit
+                    <i class="material-icons right">send</i>
+                </a>
             </div>
-            <!-- Row for Submit Button, Offsetted for layout -->
-            <div class="row center-align ">
-                <div class="col s12">
-                    <a class="waves-effect waves-light btn btn-custom" href="#!" type="submit" id="submitBtn">Submit
-                        <i class="material-icons right">send</i>
-                    </a>
+        </div>
+        <!-- Modal for multiple results found -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <div class="collection" id="multipleLocationsModal">
+
                 </div>
             </div>
-            <!-- Modal for multiple results found -->
-            <div id="modal1" class="modal">
-                <div class="modal-content">
-                    <div class="collection" id="multipleLocationsModal">
-                        
-                      </div>
-                </div>
-            </div>
-            <!-- Row for Map and restaurant Details -->
-<div class="row resultsDiv center-align">
-    <div class="col s12 push-m1 m10 push-l2 l8">
-                    <div class="card ">
-<div class="card-content center-align">
-                            <div class="section center-align blue white-text">
-                                <h4 id="rName"></h4>
-                            </div>
-                            <div id="map">
-                            </div>
+        </div>
+        <!-- Row for Map and restaurant Details -->
+        <div class="row resultsDiv center-align">
+            <div class="col s12 push-m1 m10 push-l2 l8">
+                <div class="card ">
+                    <div class="card-content center-align">
+                        <div class="section center-align blue white-text">
+                            <h4 id="rName"></h4>
+                        </div>
+                        <div id="map">
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col s12 m12 l6">
+            </div>
+            <!-- <div class="col s12 m12 l6">
                     <div class="card" id="placeDetails">
                         <div class="card-content">
                             <div class="section center-align blue white-text">
@@ -113,54 +117,58 @@
                         </div>
                     </div>
                 </div> -->
+        </div>
+        <!-- Row for Results -->
+        <div class="row resultsDiv">
+            <div class="col s12">
+                <ul class="collapsible" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header">
+                            <i class="material-icons">sentiment_very_satisfied</i>Passed Inspections
+                            <span class="new badge successbadge" id="totalPass"
+                                data-badge-caption="Total"></span>
+                        </div>
+                        <div class="collapsible-body">
+                            <table class="striped">
+                                <thead>
+                                    <tr class="center-align">
+                                        <th>Inspection Date</th>
+                                        <th>Results</th>
+                                        <th>Inspection Type</th>
+                                        <th>Violation</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="passTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">
+                            <i class="material-icons">sentiment_dissatisfied</i>Failed Inspections
+                            <span class="new badge failbadge" id="totalFail"
+                                data-badge-caption="Total"></span>
+                        </div>
+                        <div class="collapsible-body">
+                            <table class="striped">
+                                <thead class="center-align">
+                                    <tr>
+                                        <th>Inspection Date</th>
+                                        <th>Results</th>
+                                        <th>Inspection Type</th>
+                                        <th>Violation</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="failTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <!-- Row for Results -->
-            <div class="row resultsDiv">
-                <div class="col s12">
-                    <ul class="collapsible" data-collapsible="accordion">
-                        <li>
-                            <div class="collapsible-header">
-                                <i class="material-icons">sentiment_very_satisfied</i>Passed Inspections<span class="new badge successbadge" id="totalPass" data-badge-caption="Total"></span>
-                            </div>
-                            <div class="collapsible-body">
-                                <table class="striped">
-                                    <thead>
-                                        <tr class="center-align">
-                                            <th>Inspection Date</th>
-                                            <th>Results</th>
-                                            <th>Inspection Type</th>
-                                            <th>Violation</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="passTableBody">
-                                    </tbody>
-                                </table>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="collapsible-header">
-                                <i class="material-icons">sentiment_dissatisfied</i>Failed Inspections<span class="new badge failbadge" id="totalFail" data-badge-caption="Total"></span>
-                            </div>
-                            <div class="collapsible-body">
-                                <table class="striped">
-                                    <thead class="center-align">
-                                        <tr>
-                                            <th>Inspection Date</th>
-                                            <th>Results</th>
-                                            <th>Inspection Type</th>
-                                            <th>Violation</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="failTableBody">
-                                    </tbody>
-                                </table>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!-- Row for Google Places Reviews -->
-            <!-- <div class="row resultsDiv">
+        </div>
+        <!-- Row for Google Places Reviews -->
+        <!-- <div class="row resultsDiv">
                 <div class="col s12">
                     <ul class="collapsible" data-collapsible="accordian">
                         <li>
@@ -191,28 +199,30 @@
                 </div>
             </div> -->
         <!-- End of main container! -->
-        </main>
-        <!-- Page Footer -->
-        <footer class="page-footer footer-custom">
-            <div class="footer-copyright">
-                <div class="container">
-                    Created by <a class="orange-text text-lighten-3" href="http://materializecss.com">Children Of The Node </a>
-                </div>
+    </main>
+    <!-- Page Footer -->
+    <footer class="page-footer footer-custom">
+        <div class="footer-copyright">
+            <div class="container">
+                Created by
+                <a class="text-lighten-3" href="http://materializecss.com">Children Of The Node </a>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-        <!-- Firebase -->
-        <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
-         <!--Import jQuery before materialize.js-->
-         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-        <!-- Moment.js -->
-        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-        <!-- Link JS -->
-        <script src="assets/javascript/app.js"></script>
-        <!-- Google Maps Source -->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXG0y8hqZdBmY_OyI2KBU4DqSblrv59gs"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <!-- Moment.js -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <!-- Link JS -->
+    <script src="assets/javascript/app.js"></script>
+    <!-- Google Maps Source -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXG0y8hqZdBmY_OyI2KBU4DqSblrv59gs"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
 </body>
+
 </html>
