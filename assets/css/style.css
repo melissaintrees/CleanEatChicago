@@ -19,7 +19,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-image: url("../images/chicago_skyline_Catarina-Oberlander.jpg");
+    background-color: #B9121B;
 }
 
 main {
@@ -64,12 +64,12 @@ a {
 .modal-bg {
     background-color:#323232;
 }
-.collection {
+.collection1 {
     border: none !important;
 }
-.collection-item {
+.collection-item1 {
    background-color:  #FCFAE4 !important;
-   text-align: justify !important;
+   
    color: black;
 }
 
@@ -221,10 +221,32 @@ footer {
     background-color: #B71623;
 }
 
-/* @media only screen and (max-width: 480px) {
-  
+@media only screen and (max-width: 600px) {
+    .logo {
+        width: 35%;
+    }
+
+    .parallax-container {
+        height: 300px;
+    }
+
+    th {
+        font-size: 16px;
+        text-transform: none;
+    }
+    .ft-txt {
+        display: none;
+    }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 500px) {
 
-} */
+     .parallax-container {
+         height: 175px;
+     }
+     th, td, .tst{
+        font-size: 9px;
+     }
+ 
+
+} 

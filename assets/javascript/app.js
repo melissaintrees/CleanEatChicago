@@ -55,7 +55,7 @@ $(document).ready(function () {
     // Call City of Chicago Health Data API
     function chicagoCall(restaurantName, zipName) {
         var baseURL = 'https://data.cityofchicago.org/resource/cwig-ma7x.json';
-        var queryURL = '?$where=inspection_date between "2012-01-01T12:00:00" and "2017-01-14T14:00:00"' +
+        var queryURL = '?$where=inspection_date between "2014-01-01T12:00:00" and "2018-01-14T14:00:00"' +
             ' and starts_with(dba_name, upper("' +
             restaurantName +
             '")) and zip="' + zipName + '"';
@@ -125,7 +125,7 @@ $(document).ready(function () {
     // Function prints results to page after all validation and checking.
     function addResultsToPage(r) {
         initMap(r);
-        placeID(r);
+        // placeID(r);
         var pass = 0;
         var fail = 0;
         console.log(r);
@@ -141,18 +141,21 @@ $(document).ready(function () {
                 tableData1.text(moment(r[i].inspection_date).format("MM-DD-YYYY"));
                 tableData2.text(r[i].results);
                 tableData3.text(r[i].inspection_type);
+                // Instead of displaying the violation, reward Restaurants' passed inspections by hiding the inspection data.
                 // tableData4.text(r[i].violations);
+                // if they passed with "pass" they get a two clean thumbs up
                 if (r[i].results === "Pass") {
                     tableData4.text("Two Clean Thumbs Up!")
                 } else {
-                    tableData4.text("A-OK")
+                // if they passed with "pass with conditions" they get a "One Clean Thumb Up"
+                    tableData4.text("One Clean Thumb Up!")
                 }
 
                 var passTableBody = $("#passTableBody");
                 passTableRow.append(tableData1, tableData2, tableData3, tableData4);
                 passTableBody.append(passTableRow);
                 // display the DBA name for the header of the map. 
-                $("#rName").text(r[i].dba_name);
+                $("#rName").text(r[i].aka_name);
             } else if (result.includes("Fail")) {
                 fail++;
                 console.log(fail);
@@ -161,7 +164,7 @@ $(document).ready(function () {
                 var tableData1 = $("<td>");
                 var tableData2 = $("<td>");
                 var tableData3 = $("<td>");
-                var tableData4 = $('<td>');
+                var tableData4 = $('<td class="tst">');
                 tableData1.text(moment(r[i].inspection_date).format("MM-DD-YYYY"));
                 tableData2.text(r[i].results);
                 tableData3.text(r[i].inspection_type);
@@ -193,42 +196,43 @@ $(document).ready(function () {
         });
 
     };
+    // At some point we would love to put this back in and set up a Express Node Server in place of a proxy server.
     // Function which queries Google PlaceID to retrieve placeID
-    function placeID(v) {
-        var baseURL = 'https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyDHoRALByDMw9kuV4wjKPK22BqM8AahDgo&';
-        var queryURL = 'query=' + restaurantNameGlobal + '&location=' + v[0].location.coordinates[1] + ',' + v[0].location.coordinates[0] + '&radius=50';
-        console.log(baseURL + queryURL);
-        // var proxyURL = 'https://ghastly-eyeballs-78637.herokuapp.com/';
-        var fullURL = baseURL + queryURL;
-        $.getJSON(fullURL, function (r) {
-            if (r.results.length == 0) {
-                console.log("There is an error with the Google PlaceID Fxn, someone tell Ronak!");
-            } else {
-                reviewsCall(r.results[0].place_id);
+    // function placeID(v) {
+    //     var baseURL = 'https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyDHoRALByDMw9kuV4wjKPK22BqM8AahDgo&';
+    //     var queryURL = 'query=' + restaurantNameGlobal + '&location=' + v[0].location.coordinates[1] + ',' + v[0].location.coordinates[0] + '&radius=50';
+    //     console.log(baseURL + queryURL);
+    //     // var proxyURL = 'https://ghastly-eyeballs-78637.herokuapp.com/';
+    //     var fullURL = baseURL + queryURL;
+    //     $.getJSON(fullURL, function (r) {
+    //         if (r.results.length == 0) {
+    //             console.log("There is an error with the Google PlaceID Fxn, someone tell Ronak!");
+    //         } else {
+    //             reviewsCall(r.results[0].place_id);
 
-            };
-        });
-    };
+    //         };
+    //     });
+    // };
 
-    function reviewsCall(placeID) {
-        var baseURL = 'https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyDHoRALByDMw9kuV4wjKPK22BqM8AahDgo&';
-        var queryURL = "placeid=" + placeID;
-        // var proxyURL = 'https://ghastly-eyeballs-78637.herokuapp.com/';
-        var fullURL = baseURL + queryURL;
-        $.getJSON(fullURL, function (r) {
-            $("#rName").text(r.result.name);
-            $("#address").text(r.result.formatted_address);
-            $("#phone").text(r.result.formatted_phone_number);
-            $("#googleRating").text(r.result.rating);
-            for (var i = 0; i < r.result.opening_hours.weekday_text.length; i++) {
-                $("#hours" + i).text(r.result.opening_hours.weekday_text[i]);
-            };
-            for (var i = 0; i < 3; i++) {
-                $("#reviewName" + i).text(r.result.reviews[i].author_name);
-                $("#reviewText" + i).text(r.result.reviews[i].text);
-                $("#reviewDate" + i).text(r.result.reviews[i].relative_time_description);
-            };
-        });
-    };
+    // function reviewsCall(placeID) {
+    //     var baseURL = 'https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyDHoRALByDMw9kuV4wjKPK22BqM8AahDgo&';
+    //     var queryURL = "placeid=" + placeID;
+    //     // var proxyURL = 'https://ghastly-eyeballs-78637.herokuapp.com/';
+    //     var fullURL = baseURL + queryURL;
+    //     $.getJSON(fullURL, function (r) {
+    //         $("#rName").text(r.result.name);
+    //         $("#address").text(r.result.formatted_address);
+    //         $("#phone").text(r.result.formatted_phone_number);
+    //         $("#googleRating").text(r.result.rating);
+    //         for (var i = 0; i < r.result.opening_hours.weekday_text.length; i++) {
+    //             $("#hours" + i).text(r.result.opening_hours.weekday_text[i]);
+    //         };
+    //         for (var i = 0; i < 3; i++) {
+    //             $("#reviewName" + i).text(r.result.reviews[i].author_name);
+    //             $("#reviewText" + i).text(r.result.reviews[i].text);
+    //             $("#reviewDate" + i).text(r.result.reviews[i].relative_time_description);
+    //         };
+    //     });
+    // };
     // End of Document Ready
 });

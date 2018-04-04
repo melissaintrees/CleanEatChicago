@@ -20,8 +20,8 @@
     <!-- Navbar -->
     <header>
         <div class="center-align">
-                <img class="logo" src="./assets/images/cleaneat_logo_color_290x110dp.png" alt="logo for clean eat chicago">
-                <!-- <span id="clean-italic">CLEAN EAT </span>
+            <img class="logo" src="./assets/images/cleaneat_logo_color_290x110dp.png" alt="logo for clean eat chicago">
+            <!-- <span id="clean-italic">CLEAN EAT </span>
                 <span id="title-chi"></span>CHICAGO -->
         </div>
     </header>
@@ -46,7 +46,7 @@
                     <button data-target="modal2" class="btn waves-effect waves-light btn-custom btn modal-trigger">About App</button>
                 </div>
             </div>
-            
+
             <!-- Row for search fields, hard coded -->
             <div class="row ">
                 <form class="col s12">
@@ -55,7 +55,7 @@
                         <input class="icon_prefix" id="rest-search-input" data-error="wrong" data-success="right" type="text" class="validate">
                         <label for="rest-search-input">Restaurant</label>
                     </div>
-                    
+
                     <div class="input-field col s12 m12 l6 zip-search-field">
                         <i class="material-icons prefix">search</i>
                         <input class="icon_prefix" id="zip-search-input" type="text" data-length="5" class="validate">
@@ -72,32 +72,32 @@
                 </div>
             </div>
             <!-- Modal to explain app -->
-            <div id="modal2" class="modal">
+            <div id="modal2" class="modal ">
                 <div class="modal-content modal-bg">
                     <div id="instructions-modal">
-                        <ul class="collection with-header">
+                        <ul class="collection collection1 with-header flow-text">
                             <li class="collection-header">
                                 <h4>Welcome!
                                 </h4>
                             </li>
-                            <li class="collection-item">
-                                <div > To access Health Inspection Records for Eateries in Chicago:
+                            <li class="collection-item collection-item1">
+                                <div> To access Health Inspection Records for Eateries in Chicago:
                                 </div>
                             </li>
-                            <li class="collection-item">
+                            <li class="collection-item collection-item1">
                                 <div>Enter the name and zip code of the Chicago eatery of your choice
                                 </div>
                             </li>
-                            <li class="collection-item">
+                            <li class="collection-item collection-item1">
                                 <div>View Health Inspection data over the last few years.
                                 </div>
                             </li>
-                            <li class="collection-item">
+                            <li class="collection-item collection-item1">
                                 <div>Happy Eating!
                                 </div>
                             </li>
                         </ul>
-            
+
                     </div>
                 </div>
             </div>
@@ -125,15 +125,15 @@
             </div>
             <!-- Row for Results -->
             <div class="row resultsDiv">
-                <div class="col s12">
-                    <ul class="collapsible" data-collapsible="accordion">
+<div class="col s12">
+                    <ul class="collapsible " data-collapsible="accordion">
                         <li>
                             <div class="collapsible-header">
                                 <i class="material-icons">sentiment_very_satisfied</i>Passed Inspections
                                 <span class="new badge successbadge" id="totalPass" data-badge-caption="Total"></span>
                             </div>
                             <div class="collapsible-body">
-                                <table class="striped custom-stripe">
+<table class="striped custom-stripe ">
                                     <thead>
                                         <tr class="center-align">
                                             <th>Inspection Date</th>
@@ -153,7 +153,7 @@
                                 <span class="new badge failbadge" id="totalFail" data-badge-caption="Total"></span>
                             </div>
                             <div class="collapsible-body">
-                                <table class="striped custom-stripe">
+<table class="striped custom-stripe ">
                                     <thead class="center-align">
                                         <tr>
                                             <th>Inspection Date</th>
@@ -163,6 +163,7 @@
                                         </tr>
                                     </thead>
                                     <tbody id="failTableBody">
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -177,32 +178,33 @@
 
     <div class="parallax-container">
         <div class="parallax bg-img">
-<img src="./assets/images/chicago_bean.jpg">
+            <img src="./assets/images/chicago_bean.jpg">
         </div>
     </div>
-  <!-- Page Footer -->
-        <footer class="page-footer footer-custom">
-            <div class="footer-copyright">
-                <div class="container">
- Created by
-<a class="text-lighten-3" href="https://github.com/melissaintrees/CleanEatChicago">Children of The Node | GitHub</a>
-                </div>
-            </div>
-        </footer>
+    <!-- Page Footer -->
+    <footer class="page-footer footer-custom">
+        <div class="footer-copyright">
+            <div class="container">
+                Created by
+                <a class="text-lighten-3" href="https://github.com/melissaintrees/CleanEatChicago">Children of The Node | GitHub</a>
+</div>
+</div>
+        </div>
+    </footer>
 
-        <!-- Firebase -->
-        <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
-        <!--Import jQuery before materialize.js-->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-        <!-- Moment.js -->
-        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-        <!-- Link JS -->
-        <script src="assets/javascript/app.js"></script>
-        <!-- Google Maps Source -->
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXG0y8hqZdBmY_OyI2KBU4DqSblrv59gs"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <!-- Moment.js -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <!-- Link JS -->
+    <script src="assets/javascript/app.js"></script>
+    <!-- Google Maps Source -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXG0y8hqZdBmY_OyI2KBU4DqSblrv59gs"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
 </body>
 
 </html>
