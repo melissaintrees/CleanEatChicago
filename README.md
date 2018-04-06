@@ -6,7 +6,7 @@ It is deployed [here](https://melissaintrees.github.io/CleanEatChicago/).
 
 ### Video Demo of the App!
 
-[![CleanEatChicago](/screenshots/demo_video_cover.png)](https://vimeo.com/257386878 "Clean Eat Chicago Demo - Click to Watch!")
+[![CleanEatChicago](/screenshots/demo_video_cover.png)](https://vimeo.com/263433146 "Clean Eat Chicago Demo - Click to Watch!")
 
 ## Concept and Motivation
 
