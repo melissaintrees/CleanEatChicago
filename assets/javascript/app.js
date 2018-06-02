@@ -14,17 +14,7 @@ $(document).ready(function () {
         $(".resultsDiv").hide();
     };
     defaultPage();
-    // Function to toggle input fields based on target click
-    // $("#searchBtns").on("click", function(e){
-    // 	if (e.target.id === "restaurantName"){
 
-    //         $(".rest-search-field").show();
-    //         $(".cuisine-search-field").hide();
-    //     } else {
-    //         $(".cuisine-search-field").show();
-    //         $(".rest-search-field").hide();
-    //     }
-    // });
     // Function run when the user hits submit
     $("#submitBtn").on("click", function () {
         var restaurantName = $("#rest-search-input").val();
@@ -63,7 +53,6 @@ $(document).ready(function () {
         $.getJSON(finalURL, function (r) {
             // Check # of restaurants returned
             lengthCheck(r);
-
         });
     };
     // This function checks how many restaurants are returned by the City API, if there are multiple, it prompts
