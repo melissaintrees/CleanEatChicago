@@ -1,64 +1,47 @@
-//Document ready Function
 $(document).ready(function () {
     // Needs to be global for use in google places fxn
     var restaurantNameGlobal = "";
     // Modal function needed by Materialize
     $('.modal').modal();
+    $("#modal2").modal("open");
+    
     // Parallex call needed by Materialize
     $('.parallax').parallax();
 
 
+    // $('.tap-target').tapTarget("open");
     // Prints default page to screen on page load
     function defaultPage() {
-        // $(".cuisine-search-field").hide();
         $(".resultsDiv").hide();
     };
     defaultPage();
-    // Function to toggle input fields based on target click
-    // $("#searchBtns").on("click", function(e){
-    // 	if (e.target.id === "restaurantName"){
-
-    //         $(".rest-search-field").show();
-    //         $(".cuisine-search-field").hide();
-    //     } else {
-    //         $(".cuisine-search-field").show();
-    //         $(".rest-search-field").hide();
-    //     }
-    // });
     // Function run when the user hits submit
     $("#submitBtn").on("click", function () {
-        var restaurantName = $("#rest-search-input").val();
+        var restaurantName = $("#rest-search-input").val().trim();
         restaurantNameGlobal = restaurantName;
-        // var cuisineName = $("#cuisine-search-input").val();
-        var zipName = $("#zip-search-input").val();
         // Validate Input
-        validateInput(restaurantName, zipName);
+        validateInput(restaurantName);
     });
     // Function validates user input and if valid, calls Fxn to run API, else prompts user to retry
-    function validateInput(restaurantName, zipName) {
-        if (restaurantName == "" && zipName == "") {
+    function validateInput(restaurantName) {
+        if (restaurantName == "") {
             Materialize.toast("Please enter a Restaurant Name!", 4000);
-            Materialize.toast("Please enter a valid five digit zip code!", 4000);
-        } else if (restaurantName == "") {
-            Materialize.toast("Please enter a Restaurant Name!", 4000);
-        } else if (zipName == "" || !(/(^\d{5}$)/).test(zipName)) {
-            Materialize.toast("Please enter a valid five digit zip code!", 4000);
         } else {
             // Empty Search Fields and Results for next search
             $("#passTableBody").empty();
             $("#failTableBody").empty();
             $("#rest-search-input").val("");
-            $("#zip-search-input").val("");
-            chicagoCall(restaurantName, zipName);
+            chicagoCall(restaurantName);
         };
     };
     // Call City of Chicago Health Data API
-    function chicagoCall(restaurantName, zipName) {
+    function chicagoCall(restaurantName) {
         var baseURL = 'https://data.cityofchicago.org/resource/cwig-ma7x.json';
         var queryURL = '?$where=inspection_date between "2014-01-01T12:00:00" and "2018-01-14T14:00:00"' +
             ' and starts_with(dba_name, upper("' +
             restaurantName +
-            '")) and zip="' + zipName + '"';
+            '"))';
+            console.log(queryURL);
         var finalURL = baseURL + queryURL;
         $.getJSON(finalURL, function (r) {
             // Check # of restaurants returned
@@ -104,7 +87,7 @@ $(document).ready(function () {
         for (var i = 0; i < multiRestaurantArray.length; i++) {
             var link = $("<a>");
             link.text(multiRestaurantArray[i].address);
-            link.addClass("collection-item multipleResults");
+            link.addClass("collection-item collection-item2 multipleResults");
             link.attr("data-license", multiRestaurantArray[i].license);
             multipleLocationsModal.append(link);
             $("#modal1").modal('open');

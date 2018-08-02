@@ -16,7 +16,7 @@ header {
 /*styles for flexible main and footer content */
 
 body {
-    display: flex;
+    /* display: flex; */
     min-height: 100vh;
     flex-direction: column;
     background-color: #B9121B;
@@ -58,23 +58,43 @@ a {
 .btn-custom {
     background-color: #B71623 !important;
 }
-.modal {
+.modal-custom {
     background-color: transparent !important;
+    width: 600px;
 }
-.modal-bg {
-    background-color:#323232;
+.modal-bg-custom {
+    background: rgba(95, 11, 18, 0.9);;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px;
 }
+
+.closing-x {
+    font-weight: bolder;
+    font-size: 23px;
+    color: #FCFAE4;
+}
+
+#instructions-modal h4 {
+    font-size: 1.7em;
+}
+#instructions-modal {
+    border-bottom: none;
+}
+
 .collection1 {
     border: none !important;
 }
 .collection-item1 {
    background-color:  #FCFAE4 !important;
-   
    color: black;
+   border-bottom: #FCFAE4 solid !important;
+   padding: 10px !important;
 }
 
 .collection-header {
-    background-color: #B71623 !important;
+    background-color: rgba(25, 26, 26, 0.5) !important;
     color: #FCFAE2;
     text-align: center;
     text-transform: uppercase;
@@ -118,6 +138,24 @@ input[type=search]:not(.browser-default):focus:not([readonly])+label {
 }
 
 /*main content results*/
+
+.modal-bg-custom-results {
+    background: rgba(95, 11, 18, 0.9);
+    text-align: center;
+    padding: 0px;
+    border-bottom: none !important;
+}
+
+.collection-item2 {
+    background-color: #FCFAE4 !important;
+    color: black;
+
+    padding: 10px !important;
+}
+
+.collection a.collection-item2:not(.active):hover {
+   background-color: rgb(104, 99, 99) !important;
+}
 
 /*info card*/
 
