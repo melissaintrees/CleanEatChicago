@@ -46,7 +46,6 @@ $(document).ready(function () {
         $.getJSON(finalURL, function (r) {
             // Check # of restaurants returned
             lengthCheck(r);
-
         });
     };
     // This function checks how many restaurants are returned by the City API, if there are multiple, it prompts
