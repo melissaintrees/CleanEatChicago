@@ -58,27 +58,35 @@ a {
 .btn-custom {
     background-color: #B71623 !important;
 }
-.modal {
-    background-color: transparent !important;
+
+.modal-bg-custom {
+    background-color:#FCFAE4;
+    padding: 10px !important;
+    border: solid 3px #B71623;
 }
-.modal-bg {
-    background-color:#323232;
-}
+
 .collection1 {
     border: none !important;
 }
+
 .collection-item1 {
-   background-color:  #FCFAE4 !important;
-   
-   color: black;
+    background-color:  #FCFAE4 !important;
+    color: black;
+    border-bottom: #FCFAE4 solid !important;
+    text-align: center;
 }
 
-.collection-header {
+.custom-collection-header {
     background-color: #B71623 !important;
     color: #FCFAE2;
     text-align: center;
     text-transform: uppercase;
+    padding: 20px;
 }
+
+
+ 
+
 
 /* styles the underline when clicked in the input field */
 
@@ -241,12 +249,21 @@ footer {
 
 @media only screen and (max-width: 500px) {
 
-     .parallax-container {
-         height: 175px;
-     }
-     th, td, .tst{
-        font-size: 9px;
-     }
- 
+    .parallax-container {
+        height: 175px;
+    }
+
+    th, td, .tst{
+    font-size: 9px;
+    }
+
+    .custom-collection-header {
+        padding: 10px 10px 0px 10px;
+    }
+
+    .custom-collection-header > h4 {
+        font-size: 1.4em;
+    }
+
 
 } 
