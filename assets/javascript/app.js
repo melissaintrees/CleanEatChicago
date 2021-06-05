@@ -4,7 +4,7 @@ $(document).ready(function () {
     // Modal function needed by Materialize
     $('.modal').modal();
     $("#modal2").modal("open");
-    
+
     // Parallex call needed by Materialize
     $('.parallax').parallax();
 
@@ -41,7 +41,7 @@ $(document).ready(function () {
             ' and starts_with(dba_name, upper("' +
             restaurantName +
             '"))';
-            console.log(queryURL);
+        console.log(queryURL);
         var finalURL = baseURL + queryURL;
         $.getJSON(finalURL, function (r) {
             // Check # of restaurants returned
@@ -129,7 +129,7 @@ $(document).ready(function () {
                 if (r[i].results === "Pass") {
                     tableData4.text("Two Clean Thumbs Up!")
                 } else {
-                // if they passed with "pass with conditions" they get a "One Clean Thumb Up"
+                    // if they passed with "pass with conditions" they get a "One Clean Thumb Up"
                     tableData4.text("One Clean Thumb Up!")
                 }
 
@@ -164,10 +164,13 @@ $(document).ready(function () {
     };
     // Function prints map to page
     function initMap(r) {
-        var centerMap = {
-            lat: r[0].location.coordinates[1],
-            lng: r[0].location.coordinates[0]
+        let centerMap = {
+            lat: r[0].location.coordinates[0],
+            lng: r[0].location.coordinates[1]
         };
+        console.log(centerMap)
+
+
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15,
             center: centerMap
