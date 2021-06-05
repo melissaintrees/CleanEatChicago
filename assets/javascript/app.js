@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    // https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/
+    console.log(moment().format("YYYY-MM-DD" + "T" + "hh:mm:ss"));
     // Needs to be global for use in google places fxn
     var restaurantNameGlobal = "";
     // Modal function needed by Materialize
@@ -36,8 +38,9 @@ $(document).ready(function () {
     };
     // Call City of Chicago Health Data API
     function chicagoCall(restaurantName) {
+        var currentMoment = moment().format("YYYY-MM-DD" + "T" + "hh:mm:ss")
         var baseURL = 'https://data.cityofchicago.org/resource/cwig-ma7x.json';
-        var queryURL = '?$where=inspection_date between "2014-01-01T12:00:00" and "2018-01-14T14:00:00"' +
+        var queryURL = '?$where=inspection_date between "2016-01-01T12:00:00" and "' + currentMoment + '"' +
             ' and starts_with(dba_name, upper("' +
             restaurantName +
             '"))';
