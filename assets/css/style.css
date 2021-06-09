@@ -61,11 +61,10 @@ a {
 
 .modal-bg-custom {
     background-color:#FCFAE4;
-    padding: 10px !important;
     border: solid 3px #B71623;
 }
 
-.collection1 {
+/* .collection1 {
     border: none !important;
 }
 
@@ -74,14 +73,18 @@ a {
     color: black;
     border-bottom: #FCFAE4 solid !important;
     text-align: center;
-}
-
+} */
+ul#my-list {
+    list-style-type:lower-alpha;
+  }
 .custom-collection-header {
     background-color: #B71623 !important;
     color: #FCFAE2;
     text-align: center;
     text-transform: uppercase;
-    padding: 20px;
+    font-size: 1.5em;
+    /* padding: 0px 20px; */
+    /* margin: 0px auto; */
 }
 
 
@@ -245,6 +248,9 @@ footer {
     .ft-txt {
         display: none;
     }
+    .custom-collection-header {
+        font-size: 14px;
+    }
 }
 
 @media only screen and (max-width: 500px) {
@@ -257,13 +263,7 @@ footer {
     font-size: 9px;
     }
 
-    .custom-collection-header {
-        padding: 10px 10px 0px 10px;
-    }
-
-    .custom-collection-header > h4 {
-        font-size: 1.4em;
-    }
+  
 
 
 } 

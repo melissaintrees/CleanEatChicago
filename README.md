@@ -25,6 +25,7 @@ Future work includes setting up a Node Express server in this app and incorporat
 * [Javascript](https://www.javascript.com/)
 * [JQuery](http://jquery.com/)
 * [Materialize](http://materializecss.com/)
+* [Parcel]
 
 ## Contributing
 Please do fork and contribute to our repo! Thank you so much!
@@ -33,7 +34,8 @@ Please read [CONTRIBUTING.md](https://www.contributor-covenant.org/version/1/4/c
 
 ## Children of the Node are:
 
-* **Melissa St Moore** - *Front End Development, UX and Design* 
+* **Melissa St Moore** - *Full Stack Developer, UX and Design* (Have been maintaining and updating since 2018)
+
 * **Ronak Shah** - *Back End Engineer/Project Lead* 
 * **Ron Giles** - *Back End Engineer/API Integration* 
 * **Rick Lopez** - *Front End Development, Original Concept* 

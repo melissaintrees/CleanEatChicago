@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     // https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/
     console.log(moment().format("YYYY-MM-DD" + "T" + "hh:mm:ss"));

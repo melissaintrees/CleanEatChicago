@@ -1,0 +1,26 @@
+{
+  "name": "cleaneatchicago",
+  "version": "1.0.0",
+  "description": "Clean Eat Chicago is a dining app built using Javascript, JQuery, Materalize, the City of Chicago Data Portal API, and the Google Maps API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melissaintrees/CleanEatChicago.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melissaintrees/CleanEatChicago/issues"
+  },
+  "homepage": "https://github.com/melissaintrees/CleanEatChicago#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.3.1"
+  }
+}
